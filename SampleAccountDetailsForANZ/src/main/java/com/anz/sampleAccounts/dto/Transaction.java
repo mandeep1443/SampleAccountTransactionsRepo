@@ -1,22 +1,47 @@
 package com.anz.sampleAccounts.dto;
 
-import java.time.LocalDate;
-
+/**
+ * DTO class to hold Transaction details
+ * 
+ * @author Mandeep_Singh20
+ *
+ */
 public class Transaction {
-	
+	/**
+	 * Attribute to hold valueDate
+	 */
 	private String valueDate;
-	
+	/**
+	 * Attribute to hold currency
+	 */
 	private String currency;
-	
+	/**
+	 * Attribute to hold debitAmount
+	 */
 	private double debitAmount;
-	
+	/**
+	 * Attribute to hold creditAmount
+	 */
 	private double creditAmount;
-	
+	/**
+	 * Attribute to hold mode
+	 */
 	private String mode;
-	
+	/**
+	 * Attribute to hold transactionNarative
+	 */
 	private String transactionNarative;
 
-	 
+	/**
+	 * Parameterized constructor
+	 * 
+	 * @param valueDate
+	 * @param currency
+	 * @param debitAmount
+	 * @param creditAmount
+	 * @param mode
+	 * @param transactionNarative
+	 */
 	public Transaction(String valueDate, String currency, double debitAmount, double creditAmount, String mode,
 			String transactionNarative) {
 		this.valueDate = valueDate;
@@ -74,8 +99,5 @@ public class Transaction {
 	public void setTransactionNarative(String transactionNarative) {
 		this.transactionNarative = transactionNarative;
 	}
-	
-	
-	
 
 }

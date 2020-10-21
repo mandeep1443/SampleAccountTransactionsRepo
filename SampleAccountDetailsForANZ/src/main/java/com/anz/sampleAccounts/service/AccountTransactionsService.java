@@ -13,22 +13,29 @@ import com.anz.sampleAccounts.dto.Transaction;
 import com.anz.sampleAccounts.exception.AccountNotExistForUserException;
 
 /**
- * This is a service class 
+ * This is a service class to implement the Business Logic
  * 
  * @author Mandeep_Singh20
  *
  */
 @Service
 public class AccountTransactionsService {
-	
+
 	/**
 	 * Logger logger using SLF4J
 	 */
 	private static final Logger logger = LoggerFactory.getLogger(AccountTransactionsService.class);
-	
+
 	@Autowired
 	AccountTransactionsDAO accTransDAO;
 
+	/**
+	 * Business function to fetchAccountDetailsForUser
+	 * 
+	 * @param userId
+	 * @return List<Account>
+	 * @throws AccountNotExistForUserException
+	 */
 	public List<Account> fetchAccountDetailsForUser(String userId) throws AccountNotExistForUserException {
 		logger.info("Entering into AccountTransactionsService.fetchAccountDetailsForUser");
 		List<Account> accountList = accTransDAO.fetchAccountDetailsForUser(userId);
@@ -36,13 +43,18 @@ public class AccountTransactionsService {
 		return accountList;
 	}
 
-	public List<Transaction> fetchAccountTransactions(String user , int accountId) {
+	/**
+	 * Business function to fetchAccountTransactions
+	 * 
+	 * @param user
+	 * @param accountId
+	 * @return List<Transaction>
+	 */
+	public List<Transaction> fetchAccountTransactions(String user, int accountId) {
 		logger.info("Entering into AccountTransactionsService.fetchAccountTransactions");
-		List<Transaction> accTransList =  accTransDAO.fetchAccountTransactions(user, accountId);
+		List<Transaction> accTransList = accTransDAO.fetchAccountTransactions(user, accountId);
 		logger.info("Exit from AccountTransactionsService.fetchAccountTransactions");
 		return accTransList;
 	}
-	
-	
 
 }

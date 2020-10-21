@@ -16,9 +16,10 @@ import com.anz.sampleAccounts.exception.AccountNotExistForUserException;
 import com.anz.sampleAccounts.service.AccountTransactionsService;
 
 /**
- * This is the Rest controller class which will accept HTTP requests .
- * The function of this API can be tested using Postman tool
- * Also the functions can be tested using a test class  : SampleAccountDetailsForAnzApplicationTests.java
+ * This is the Rest controller class which will accept HTTP requests . The
+ * function of this API can be tested using Postman tool Also the functions can
+ * be tested using a test class :
+ * SampleAccountDetailsForAnzApplicationTests.java
  * 
  * @author Mandeep_Singh20
  *
@@ -26,48 +27,49 @@ import com.anz.sampleAccounts.service.AccountTransactionsService;
 @RestController
 @RequestMapping("/accounts")
 public class AccountTransactionsController {
-	
+
 	/**
 	 * Logger logger using SLF4J
 	 */
 	private static final Logger logger = LoggerFactory.getLogger(AccountTransactionsController.class);
-	
+
 	@Autowired
 	AccountTransactionsService accTransService;
-	
-	
+
 	/**
-	 * This function will fetch the account details for logged in user 
+	 * This function will fetch the account details for logged in user
 	 * 
 	 * @param userId
 	 * @return List<Account>
 	 * @throws AccountNotExistForUserException
 	 */
 	@GetMapping(value = "/accountDetails/{user}")
-	public List<Account> fetchAccountDetailsForUser(@PathVariable("user") String userId) throws AccountNotExistForUserException{
+	public List<Account> fetchAccountDetailsForUser(@PathVariable("user") String userId)
+			throws AccountNotExistForUserException {
 		logger.info("Entering into AccountTransactionsController.fetchAccountDetailsForUser");
 		List<Account> accountList = accTransService.fetchAccountDetailsForUser(userId);
-		
+
 		logger.info("Exit from AccountTransactionsController.fetchAccountDetailsForUser");
-		return accountList;	
+		return accountList;
 	}
-	
+
 	/**
-	 * Once the user has logged in to the application , 
-	 * this function will be called when user selects any of his displayed accounts from Accounts screen
-	 * This will display transactions linked to the selected account only.
+	 * Once the user has logged in to the application , this function will be called
+	 * when user selects any of his displayed accounts from Accounts screen This
+	 * will display transactions linked to the selected account only.
 	 * 
 	 * @param user
 	 * @param accountId
 	 * @return List<Transaction>
 	 */
 	@GetMapping(value = "/accountDetails/{user}/transactions/{accountId}")
-	public List<Transaction> fetchAccountTransactions(@PathVariable("user") String user, @PathVariable("accountId") int accountId ){
+	public List<Transaction> fetchAccountTransactions(@PathVariable("user") String user,
+			@PathVariable("accountId") int accountId) {
 		logger.info("Entering into AccountTransactionsController.fetchAccountTransactions");
-		List<Transaction> accTransList = accTransService.fetchAccountTransactions(user , accountId);
-		
+		List<Transaction> accTransList = accTransService.fetchAccountTransactions(user, accountId);
+
 		logger.info("Exit from AccountTransactionsController.fetchAccountTransactions");
-		return accTransList;	
+		return accTransList;
 	}
 
 }

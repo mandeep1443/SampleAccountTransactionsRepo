@@ -1,14 +1,24 @@
 package com.anz.sampleAccounts.exception;
 
+/**
+ * Customized Exception class to hold information when Account not exist
+ * 
+ * @author Mandeep_Singh20
+ *
+ */
 public class AccountNotExistForUserException extends Exception {
 	
 	/**
 	 * serial version id
 	 */
 	private static final long serialVersionUID = -8258658187970437152L;
-
+	/**
+	 * to hold errorCode
+	 */
 	private String errorCode;
-	
+	/**
+	 * to hold errorMessage
+	 */
 	private String errorMessage;
 
 	public String getErrorCode() {

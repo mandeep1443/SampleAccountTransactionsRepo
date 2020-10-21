@@ -1,10 +1,21 @@
 package com.anz.sampleAccounts.exception;
 
+/**
+ * Class to hold Customized Error Details which can be returned as response
+ * 
+ * @author Mandeep_Singh20
+ *
+ */
 public class ErrorDetails {
-	
+	/**
+	 * to hold errCode
+	 */
 	private String errCode;
-	
-	private String errMess ;
+
+	/**
+	 * to hold errMess
+	 */
+	private String errMess;
 
 	public String getErrCode() {
 		return errCode;
@@ -21,7 +32,5 @@ public class ErrorDetails {
 	public void setErrMess(String errMess) {
 		this.errMess = errMess;
 	}
-	
-	
 
 }
